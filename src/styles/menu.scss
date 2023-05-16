@@ -1,0 +1,54 @@
+.menu_list{
+    padding: 0;
+}
+
+.menu{
+    width: 185px;
+
+    &_item {
+        display: flex;
+        align-items: center;
+        border-radius: 15px;
+        height: 45px;
+
+        margin-bottom: 40px;
+
+        &-active {
+            background-color: rgba(255, 84, 84, 1);
+
+            .menu{
+                &_icon {
+                    background-color: rgba(223, 69, 69, 1);
+                    
+                }
+                &_title{
+                    color: white;
+                }
+            }
+
+        }
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+    &_icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        width: 45px;
+        height: 45px;
+
+    }
+
+    &_title-container{
+        text-align: center;
+        width: 138px;
+    }
+
+    &_title {
+        color: black;
+    }
+}
