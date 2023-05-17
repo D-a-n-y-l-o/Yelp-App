@@ -2,8 +2,12 @@ import { useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+import '../styles/form.scss';
+
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../base';
+
+import { NavLink } from 'react-router-dom';
 
 import { AuthContext } from '../context/AuthContext';
 
@@ -57,29 +61,34 @@ export const AuthForm = () => {
             className='form'
         >
             <Input
-                className='input'
-                placeholder="Enter your login"
+                label='form-label'
+                className='form-input form-input-first'
+                placeholder="test@gmail.com"
                 type='text'
                 value={values.email}
                 name='email'
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {touched.email && errors.email ? <p className='error-message' >{errors.email}</p> : null}
+            {touched.email && errors.email ? <p className='form-error-message' >{errors.email}</p> : null}
             <Input
-                className='input'
-                placeholder="Enter your password"
+                label='form-label'
+                className='form-input form-input-password'
+                placeholder="*************"
                 type='password'
                 value={values.password}
                 name='password'
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {touched.password && errors.password ? <p className='error-message' >{errors.password}</p> : null}
+            {touched.password && errors.password ? <p className='form-error-message' >{errors.password}</p> : null}
             <Button
-                className='submit-button'
+                className='form-button'
                 text='Login'
             />
+            <NavLink to='/register' className='form-link' >
+                don`t have an account?
+            </NavLink> 
         </form>
     )
 }

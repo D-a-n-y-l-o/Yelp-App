@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(234, 241, 254);
+    font-family: 'League Spartan', sans-serif;
+}
+
+.home-container{
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: 35px;
+}
+
+.main{
+    background-color: white;
+    border-radius: 5%;
+}
+
+.meals-and-articles{
+    margin: 0 55px 0 60px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 55px;
+}

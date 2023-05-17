@@ -1,0 +1,132 @@
+.form-container{
+    position:relative;
+    text-align: center;
+    padding-bottom: 228px;
+}
+
+.form-title{
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 65px;
+    margin: 100px 0 13px;
+    position: relative;
+
+    &-image{
+        position: absolute;
+    }
+}
+
+.form{
+    display: inline-block;
+    text-align: center;
+    border-radius: 35px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 77px 95px 54px;
+
+
+    &-label{
+        display: block;
+        text-align: start;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0px 0px 3px;
+    }
+
+    &-input{
+        display:inline-block;
+        width: 388px;
+        height: 50px;
+        border: none;
+        background: #F3F3F3;
+        border-radius: 15px;
+        padding-left: 13px;
+        box-sizing: border-box;
+
+        &-first{
+            margin: 0px 0 13px;
+        }
+
+        &::placeholder{
+            font-weight: 700;
+            font-size: 11px;
+            line-height: 18px;
+            text-decoration-line: underline;
+            color: #CC9696;
+        }
+    }
+
+    &-input-password{
+        &::placeholder{
+            font-weight: 700;
+            font-size: 11px;
+            line-height: 18px;
+            text-decoration: none;
+            color: #CC9696;
+        }
+    }
+
+    &-error-message{
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 18px;
+        color: #ca0000;
+        text-align: start;
+        margin: 0 0 5px;
+    }
+
+    &-button{
+        display: block;
+        width: 163px;
+        height: 50px;
+        background: #2D9CDB;
+        border-radius: 15px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #FFFFFF;
+        border: none;
+        margin: 37px auto 10px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &-link{
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        text-decoration-line: underline;
+        color: black;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+
+.form-image-grapes{
+    position: absolute;
+    left: 0px;
+    top: -105px;
+}
+
+.form-image-leaf{
+    position: absolute;
+    right: 0px;
+    top: -105px;
+}
+
+.form-image-bittenApple{
+    position: absolute;
+    left: 100px;
+    bottom: 88px;
+}
+
+.form-image-orange{
+    position: absolute;
+    right: 3px;
+    bottom: 0px;
+}

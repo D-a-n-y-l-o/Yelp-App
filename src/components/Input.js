@@ -1,4 +1,4 @@
-export const Input = ({ name, className, placeholder, type='text', value, onChange, onBlur }) => {
+export const Input = ({ name, className, placeholder, type='text', value, onChange, onBlur, label }) => {
     
     const labelToProperSpelling = (name) => {
         if(name === 'confirm'){
@@ -10,8 +10,8 @@ export const Input = ({ name, className, placeholder, type='text', value, onChan
     }
     
     return(
-        <label>
-            <p>{labelToProperSpelling(name)}</p>
+        <>
+            <p className={label}>{labelToProperSpelling(name)}</p>
             <input
                 name={name}
                 className={className}
@@ -21,6 +21,6 @@ export const Input = ({ name, className, placeholder, type='text', value, onChan
                 onChange={onChange}
                 onBlur={onBlur}
             />
-        </label>
+        </>
     )
 }

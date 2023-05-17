@@ -5,6 +5,8 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null);
 
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(currentUser))
     }, [currentUser])
@@ -12,7 +14,9 @@ export const AuthProvider = ({ children }) => {
     return <AuthContext.Provider
         value={{
             currentUser,
-            setCurrentUser
+            setCurrentUser,
+            isLoading,
+            setIsLoading
         }}
     >
         {children}

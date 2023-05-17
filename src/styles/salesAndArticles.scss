@@ -1,0 +1,144 @@
+
+
+.sales{
+    background: #AB97F3;
+    border-radius: 30px;
+    position: relative;
+    padding: 71px 0 37px 27px;
+
+
+    &-title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 27px;
+        color: #FFFFFF;
+        margin: 0 0 7px;
+    }
+
+    &-pretitle{
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+    }
+
+    &-image{
+        position: absolute;
+        top: -50px;
+        right: -130px;
+    }
+}
+
+.articles-container{
+    padding: 25px 0 0;
+}
+
+.articles-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    position: relative;
+
+    &-title{
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 27px;
+    }
+
+    &-button{
+        width: 50px;
+        height: 50px;
+        background: #F5F6F7;
+        border-radius: 15px;
+        border: none;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.article{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &-icon{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 10px;
+        border-radius: 15px;
+        margin-right: 13px;
+
+        &-image{
+            width: 36px;
+            height: 36px; 
+        }
+    }
+
+    &-yellow{
+        background: rgba(255, 240, 165, 1);
+    }
+
+    &-blue{
+        background: rgba(214, 245, 255, 1);
+        
+    }
+
+    &-pink{
+        background: rgba(255, 221, 240, 1);
+    }
+
+    &-turquoise{
+        background: rgba(193, 255, 244, 1);
+
+    }
+
+    &-title{
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        max-width: 135px;
+    }
+
+    &-emojis{
+        position: relative;
+        display: flex;
+        align-items: center
+    }
+
+    &-emoji-two{
+        position: absolute;
+        left: 15px
+    }
+
+    &-likes{
+        position: absolute;
+        left: 30px;
+        height: 23px;
+        width: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(0deg, #FFF8D5, #FFF8D5), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+        border: 1px solid #FFFFFF;
+        border-radius: 15px;
+
+        &-amount{
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 12px;
+            margin-left: 6px;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+
+}
+

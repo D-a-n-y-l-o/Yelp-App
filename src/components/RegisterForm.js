@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+import '../styles/form.scss';
+
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../base';
 
@@ -57,37 +59,40 @@ export const RegisterForm = () => {
             className='form'
         >
             <Input
-                className='input'
-                placeholder="Enter your login"
+                label='form-label'
+                className='form-input'
+                placeholder="Email"
                 type='text'
                 value={values.email}
                 name='email'
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {touched.email && errors.email ? <p className='error-message' >{errors.email}</p> : null}
+            {touched.email && errors.email ? <p className='form-error-message' >{errors.email}</p> : null}
             <Input
-                className='input'
-                placeholder="Enter your password"
+                label='form-label'
+                className='form-input'
+                placeholder="*********************"
                 type='password'
                 value={values.password}
                 name='password'
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {touched.password && errors.password ? <p className='error-message' >{errors.password}</p> : null}
+            {touched.password && errors.password ? <p className='form-error-message' >{errors.password}</p> : null}
             <Input
-                className='input'
-                placeholder="Confirm your password"
+                label='form-label'
+                className='form-input form-input-password'
+                placeholder="*********************"
                 type='password'
                 value={values.confirm}
                 name='confirm'
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            {touched.confirm && errors.confirm ? <p className='error-message' >{errors.confirm}</p> : null}
+            {touched.confirm && errors.confirm ? <p className='form-error-message' >{errors.confirm}</p> : null}
             <Button
-                className='submit-button'
+                className='form-button form-input-password'
                 text='Register'
             />
         </form>
