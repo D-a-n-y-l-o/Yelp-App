@@ -1,11 +1,11 @@
 
 .basket{
     position: absolute;
-    z-index: 2;
+    z-index: -1;
     width: 265px;
     height: 630px;
     top: 40px;
-    right: -350px;
+    right: 0px;
     opacity: 0;
     background: #FFFFFF;
     box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.2);
@@ -14,8 +14,8 @@
     transition: 1s;
 
     &-shown{
-        right: 0px;
         opacity: 1;
+        z-index: 2;
     }
 
     &-header{
@@ -174,21 +174,21 @@
 
     &-complete{
         position: absolute;
-        z-index: 3;
+        z-index: -1;
         width: 265px;
         height: 630px;
         top: 40px;
-        right: -350px;
+        right: 0px;
         opacity: 0;
         background: #FFFFFF;
         box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.2);
         border-radius: 30px 0px 0px 30px;
         padding: 35px 20px 35px 30px;
-        transition: 1s;
+        transition: 0.3s;
 
         &-shown{
-            right: 0px;
             opacity: 1;
+            z-index: 3;
         }
 
         &-container{

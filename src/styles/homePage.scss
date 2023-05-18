@@ -1,6 +1,10 @@
 body{
     background-color: rgb(234, 241, 254);
     font-family: 'League Spartan', sans-serif;
+    
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 .home-container{
