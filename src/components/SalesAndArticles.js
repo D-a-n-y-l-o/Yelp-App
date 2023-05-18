@@ -1,5 +1,3 @@
-import '../styles/salesAndArticles.scss';
-
 import { Sales } from './Sales';
 import { Articles } from './Articles';
 

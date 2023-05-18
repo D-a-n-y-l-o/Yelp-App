@@ -1,7 +1,5 @@
 import logo from '../assets/userLogo.png';
 
-import '../styles/user.scss'
-
 export const User = () => {
 
 

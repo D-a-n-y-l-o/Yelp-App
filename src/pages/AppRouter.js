@@ -5,11 +5,11 @@ import { AuthFormPage } from './AuthFormPage';
 import { RegisterFormPage } from './RegisterFormPage';
 import { Home } from './Home';
 
-import { AuthContext } from '../context/AuthContext';
+import { Context } from '../context/Context';
 
 
 const PrivateRoute = ({children}) => {
-    let {currentUser} = useContext(AuthContext);
+    let {currentUser} = useContext(Context);
     
     if(currentUser === null){
         return <Navigate to='/login' />
@@ -20,7 +20,7 @@ const PrivateRoute = ({children}) => {
 
 export const AppRouter = () => {
 
-    let {currentUser} = useContext(AuthContext);
+    let {currentUser} = useContext(Context);
 
     return(
         <div>

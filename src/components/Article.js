@@ -1,7 +1,5 @@
 import thumb from '../assets/thumb.png';
 
-import '../styles/salesAndArticles.scss';
-
 
 export const Article = ({ icon, title, color, image1, image2 }) => {
     

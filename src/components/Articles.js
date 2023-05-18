@@ -7,8 +7,6 @@ import cookies from '../assets/cookies.png';
 import pizzaEmoji from '../assets/pizza-emoji.png';
 import arrow from '../assets/arrow.svg';
 
-import '../styles/salesAndArticles.scss';
-
 import { Article } from './Article';
 
 
@@ -38,7 +36,7 @@ const articlesList = [
         user2: oldman,
     },
     {
-        id: 1,
+        id: 4,
         icon: pizzaEmoji,
         title: 'Home made double cheez with popcorn respies',
         color: 'turquoise',

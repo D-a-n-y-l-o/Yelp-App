@@ -22,6 +22,7 @@
     border-radius: 35px;
     background-color: rgba(255, 255, 255, 1);
     padding: 77px 95px 54px;
+    position: relative;
 
 
     &-label{
@@ -103,6 +104,17 @@
         &:hover{
             cursor: pointer;
         }
+    }
+
+    &-error{
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        color: #ca0000;
     }
 }
 

@@ -3,9 +3,7 @@ import basket from '../assets/basket.svg';
 import search from '../assets/search.svg';
 import signOut from '../assets/signOut.svg';
 
-import '../styles/mainHeader.scss'
-
-export const MainHeader = ({handleSignOut}) => {
+export const MainHeader = ({handleSignOut, toggleBasketShow}) => {
     return(
         <header className='header'>
             <p className='header-title' >
@@ -13,7 +11,7 @@ export const MainHeader = ({handleSignOut}) => {
                 <img className='header-main-image' src={emoji} alt='emoji' />
             </p>
             <nav className='header-nav' >
-                <button className='header-basket-button' >
+                <button className='header-basket-button' onClick={toggleBasketShow}>
                     <img src={basket} alt='basket' />
                 </button>
                 <button className='header-search-button'>

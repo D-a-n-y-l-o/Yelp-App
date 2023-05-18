@@ -1,8 +1,6 @@
 import delivery from '../assets/deliveryImage.png';
 import arrow from '../assets/arrow.svg'
 
-import '../styles/delivery.scss'
-
 export const Delivery = () => {
     return(
         <div className='delivery'>

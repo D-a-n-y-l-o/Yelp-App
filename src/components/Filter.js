@@ -1,5 +1,3 @@
-import '../styles/filter.scss';
-
 export const Filter = ({ className, image, title, onClick }) => {
     return(
         <div className={className} onClick={onClick}>

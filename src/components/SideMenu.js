@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import classnames from 'classnames'
-import '../styles/menu.scss';
 
 import { Icon } from './Icon';
 

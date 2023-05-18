@@ -1,25 +1,26 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
-import '../styles/form.scss';
 
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../base';
 
 import { NavLink } from 'react-router-dom';
 
-import { AuthContext } from '../context/AuthContext';
+import { Context } from '../context/Context';
 
 import { Input } from './Input';
 import { Button } from './Button';
+import { FormError } from './FormError';
 
 
 const auth = getAuth();
 
 export const AuthForm = () => {
 
-    const { setCurrentUser } = useContext(AuthContext)
+    const { setCurrentUser, setIsLoading } = useContext(Context);
+
+    const [formError, setFormError] = useState('')
 
     const {handleSubmit, handleChange, values, handleBlur, touched, errors} = useFormik({
         initialValues: {
@@ -45,12 +46,11 @@ export const AuthForm = () => {
             try{
                 const response = await signInWithEmailAndPassword(auth, values.email, values.password);
                 const user = response.user
-                console.log(user);
 
-                setCurrentUser(user)
+                setCurrentUser(user);
 
             } catch (err){
-                console.log(err)
+                setFormError(err.message);
             }
         }
     });
@@ -88,7 +88,8 @@ export const AuthForm = () => {
             />
             <NavLink to='/register' className='form-link' >
                 don`t have an account?
-            </NavLink> 
+            </NavLink>
+            <FormError errorMessage={formError} />
         </form>
     )
 }

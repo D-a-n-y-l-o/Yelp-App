@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { useContext, useState } from "react";
+import { Context } from "../context/Context";
 import { useNav } from "../hooks/useNav";
 
 import { getAuth, signOut } from 'firebase/auth';
@@ -13,14 +13,20 @@ import { Filters } from "../components/Filters";
 import { Meals } from '../components/Meals';
 import { SalesAndArticles } from '../components/SalesAndArticles';
 import { Loader } from "../components/Loader";
+import { Basket } from "../components/Basket";
+import { CompleteOrderUI } from "../components/CompleteOrderUI";
 
-import '../styles/homePage.scss'
+import classNames from "classnames";
+
 
 const auth = getAuth();
 
 export const Home = () => {
 
-    const { setCurrentUser, setIsLoading } = useContext(AuthContext);
+    const [isBasketShown, setIsBasketShown] = useState(false);
+
+    const [isCompleteOrderUIShown, setIsCompleteOrderUIShown] = useState(false)
+    const { setCurrentUser } = useContext(Context);
     const { goTo } = useNav();
 
 
@@ -32,6 +38,14 @@ export const Home = () => {
         goTo('/')
     }
 
+    const toggleBasketShow = () => {
+        setIsBasketShown(prev => !prev)
+    };
+
+    const toggleCompleteOrderUIShow = () => {
+        setIsCompleteOrderUIShown(prev => !prev);
+    };
+
     return(
         <div className='home-container'>
             <Loader />
@@ -41,7 +55,19 @@ export const Home = () => {
                 <Delivery />
             </div>
             <div className='main'>
-                <MainHeader handleSignOut={handleSignOut} />
+                <MainHeader
+                    handleSignOut={handleSignOut}
+                    toggleBasketShow={toggleBasketShow}
+                />
+                <Basket
+                    toggleBasketShow={toggleBasketShow}
+                    toggleCompleteOrderUIShow={toggleCompleteOrderUIShow}
+                    className={classNames('basket', {'basket-shown': isBasketShown})}
+                />
+                <CompleteOrderUI 
+                    className={classNames('basket-complete', {'basket-complete-shown': isCompleteOrderUIShown})}
+                    toggleCompleteOrderUIShow={toggleCompleteOrderUIShow}
+                />
                 <div className='meals-and-articles'>
                     <div>
                         <Filters />

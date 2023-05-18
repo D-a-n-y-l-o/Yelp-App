@@ -1,7 +1,5 @@
 import burgerSale from '../assets/burgerSale.png';
 
-import '../styles/salesAndArticles.scss';
-
 export const Sales = () => {
     return(
         <div className='sales'>

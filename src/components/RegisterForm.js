@@ -1,13 +1,14 @@
+import { useState } from 'react';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
-import '../styles/form.scss';
 
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../base';
 
 import { Input } from './Input';
 import { Button } from './Button';
+import { FormError } from './FormError';
 
 import { useNav } from '../hooks/useNav';
 
@@ -15,6 +16,8 @@ import { useNav } from '../hooks/useNav';
 const auth = getAuth();
 
 export const RegisterForm = () => {
+
+    const [formError, setFormError] = useState('')
 
     const { goTo } = useNav();
 
@@ -48,7 +51,7 @@ export const RegisterForm = () => {
 
                 goTo('/login');
             }catch (err){
-                console.log(err)
+                setFormError(err.message);
             }
         }
     });
@@ -95,6 +98,7 @@ export const RegisterForm = () => {
                 className='form-button form-input-password'
                 text='Register'
             />
+            <FormError errorMessage={formError} />
         </form>
     )
 }

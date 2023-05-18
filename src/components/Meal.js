@@ -1,5 +1,3 @@
-import '../styles/meals.scss';
-
 export const Meal = ({ className, image, title, text, price, onClick, icon }) => {
     
     

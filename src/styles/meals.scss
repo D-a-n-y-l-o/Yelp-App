@@ -25,7 +25,7 @@
 
         &::-webkit-scrollbar {
             width: 0;
-          }
+        }
     }
 
 }
@@ -135,8 +135,8 @@
             background-color: white;
             transform: translate(-50%, -50%);
             position: relative;
-            left: 8px;
-            top: 8px;            
+            left: 8.5px;
+            top: 8.5px;            
         }
 
         &-second-line{
@@ -145,7 +145,7 @@
             background-color: white;
             transform: translate(-50%, -50%);
             position: relative;
-            left: 8px;
+            left: 8.5px;
             bottom: 8px;            
         }
     }
