@@ -1,3 +1,5 @@
+$error-color:  #ca0000;
+
 .form-container{
     position:relative;
     text-align: center;
@@ -71,7 +73,7 @@
         font-weight: 700;
         font-size: 11px;
         line-height: 18px;
-        color: #ca0000;
+        color: $error-color;
         text-align: start;
         margin: 0 0 5px;
     }
@@ -114,7 +116,7 @@
         font-weight: 700;
         font-size: 18px;
         line-height: 18px;
-        color: #ca0000;
+        color: $error-color;
     }
 }
 

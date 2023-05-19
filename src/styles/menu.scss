@@ -1,3 +1,5 @@
+$icon-color-active: white ;
+
 .menu_list{
     padding: 0;
 }
@@ -31,19 +33,19 @@
             }
 
             .icon-home{
-                stroke: white;
+                stroke: $icon-color-active;
             }
 
             .icon-menu{
-                fill: white;
+                fill: $icon-color-active;
             }
 
             .icon-trending{
-                fill: white;
+                fill: $icon-color-active;
             }
 
             .icon-setting{
-                fill: white;
+                fill: $icon-color-active;
             }
 
         }
