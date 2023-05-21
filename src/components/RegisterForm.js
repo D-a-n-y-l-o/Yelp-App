@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { app } from '../base';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../base';
 
 import { Input } from './Input';
 import { Button } from './Button';
@@ -13,7 +13,22 @@ import { FormError } from './FormError';
 import { useNav } from '../hooks/useNav';
 
 
-const auth = getAuth();
+const registrationSchema = Yup.object({
+    email: Yup
+        .string()
+        .email('Email format is incorrect')
+        .required('Email is a required field'),
+    password: Yup
+        .string()
+        .min(8, 'Password must be 8 or more characters long')
+        .matches(/[0-9]/, 'Password requires a number')
+        .matches(/[a-z]/, 'Password requires a lowercase letter')
+        .required('Password is a required field'),
+    confirm: Yup
+        .string()
+        .oneOf([Yup.ref('password'), null], 'Must match "password" field value'),
+});
+
 
 export const RegisterForm = () => {
 
@@ -27,26 +42,10 @@ export const RegisterForm = () => {
             password: '',
             confirm: '',
         },
-        validationSchema: Yup.object({
-            email: Yup
-                .string()
-                .email('Email format is incorrect')
-                .required('Email is a required field'),
-            password: Yup
-                .string()
-                .min(8, 'Password must be 8 or more characters long')
-                .matches(/[0-9]/, 'Password requires a number')
-                .matches(/[a-z]/, 'Password requires a lowercase letter')
-                .required('Password is a required field'),
-            confirm: Yup
-                .string()
-                .oneOf([Yup.ref('password'), null], 'Must match "password" field value'),
-        }),
-        onSubmit: async ({email, password}) => {
-            console.log('email:', email);
-            console.log('password:', password);
-
+        validationSchema: registrationSchema,
+        onSubmit: async () => {
             try{
+                setFormError('');
                 await createUserWithEmailAndPassword(auth, values.email, values.password);
 
                 goTo('/login');
@@ -62,8 +61,8 @@ export const RegisterForm = () => {
             className='form'
         >
             <Input
-                label='form-label'
-                className='form-input'
+                label='Email'
+                className='form-input form-input-noDecoration'
                 placeholder="Email"
                 type='text'
                 value={values.email}
@@ -73,8 +72,8 @@ export const RegisterForm = () => {
             />
             {touched.email && errors.email ? <p className='form-error-message' >{errors.email}</p> : null}
             <Input
-                label='form-label'
-                className='form-input'
+                label='Password'
+                className='form-input form-input-noDecoration'
                 placeholder="*********************"
                 type='password'
                 value={values.password}
@@ -84,8 +83,8 @@ export const RegisterForm = () => {
             />
             {touched.password && errors.password ? <p className='form-error-message' >{errors.password}</p> : null}
             <Input
-                label='form-label'
-                className='form-input form-input-password'
+                label='Confirm password'
+                className='form-input form-input-noDecoration'
                 placeholder="*********************"
                 type='password'
                 value={values.confirm}
@@ -98,7 +97,7 @@ export const RegisterForm = () => {
                 className='form-button form-input-password'
                 text='Register'
             />
-            <FormError errorMessage={formError} />
+            {formError !== '' && <FormError errorMessage={formError} />}
         </form>
     )
 }

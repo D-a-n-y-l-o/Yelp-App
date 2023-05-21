@@ -26,10 +26,18 @@
         border-radius: 15px;
         margin-right: 24px;
         border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
             cursor: pointer;
         }
+    }
+
+    &-basket-image{
+        width: 30px;
+        height: 30px;
     }
 
     &-search-button{
@@ -39,10 +47,18 @@
         border-radius: 15px;
         margin-right: 8px;
         border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
             cursor: pointer;
         }
+    }
+
+    &-search-image{
+        width: 30px;
+        height: 30px;
     }
 
     &-signOut-button{
@@ -51,11 +67,97 @@
         background-color:  rgba(243, 243, 243, 1);
         border-radius: 15px;
         border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
             cursor: pointer;
         }
     }
 
+    &-signOut-image{
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .header{
+        padding: 30px 20px 30px;
+
+        &-title{
+            font-weight: 800;
+            font-size: 38px;
+            line-height: 38px;
+            margin: 0;
+            position: relative;
+        }
+
+        &-main-image{
+            position: absolute;
+            height: 38px;
+        }
+
+        &-basket-button{
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+        }
+    
+        &-basket-image{
+            width: 20px;
+            height: 20px;
+        }
+    
+        &-search-button{
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+        }
+    
+        &-search-image{
+            width: 20px;
+            height: 20px;
+        }
+    
+        &-signOut-button{
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+        }
+    
+        &-signOut-image{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header{
+        padding: 0px 20px 30px;
+
+        &-title{
+            font-size: 30px;
+            line-height: 30px;
+        }
+
+        &-main-image{
+            height: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header{
+        padding: 0px 20px 30px;
+        flex-direction: column-reverse;
+
+        &-nav{
+            margin-bottom: 20px;
+        }
+    }
 }
 

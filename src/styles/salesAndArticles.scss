@@ -24,8 +24,8 @@
 
     &-image{
         position: absolute;
-        top: -50px;
-        right: -130px;
+        top: 40px;
+        right: -45px;
     }
 }
 
@@ -127,7 +127,6 @@
         border-radius: 15px;
 
         &-amount{
-            font-family: 'Roboto', sans-serif;
             font-weight: 500;
             font-size: 10px;
             line-height: 12px;
@@ -138,7 +137,38 @@
             cursor: pointer;
         }
     }
+}
 
+@media screen and (max-width: 1200px) {
+    .sales{
+        &-image{
+            width: 200px;
+        }
+    }
+}
 
+@media screen and (max-width: 800px) {
+    .sales{
+        &-image{
+            width: 150px;
+            right: -15px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .sales-articles-container{
+        width: 250px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .sales{
+        &-image{
+            width: 120px;
+            right: 0;
+        }
+    }
 }
 

@@ -47,3 +47,48 @@
         margin: 30px 0 0;
     }
 }
+
+
+@media screen and (max-width: 1340px) {
+    .filters-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        place-items: center;
+    }
+
+    .filter{
+        height: 80px;
+        align-self: center;
+        margin: 0;
+    
+        &-title {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .filters-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        place-items: center;
+    }
+
+    .filter{
+        height: 40px;
+        align-self: center;
+        margin: 0;
+
+        &-icon {
+            display: none;
+        }
+    
+        &-title {
+            display: inline-block;
+            margin: 0;
+        }
+    }
+}
+

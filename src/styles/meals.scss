@@ -14,12 +14,12 @@
     }
 
     &-grid{
-        height: 350px;
+        height: 340px;
         overflow: auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
         gap: 30px 40px;
+        margin-top: 10px;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -73,7 +73,8 @@
 
     &-image{
         position: absolute;
-        top: -15px;
+        height: 120px;
+        top: -10px;
         left: 50%;
         transform: translate(-45%, -50%);
     }
@@ -148,3 +149,88 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1340px) {
+    .meals{   
+        &-grid{
+            height: 350px;
+            overflow: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 40px;
+    
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+    
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .meals{   
+        &-grid{
+            height: 335px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+    
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .meals{   
+        &-grid{
+            padding: 0 60px;
+            gap: 20px;
+        }
+
+    .meal{
+        justify-content: space-between;
+
+        &-button-container{
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        &-icon{
+            position: absolute;
+            top: -60px;
+            right: 0px;
+            transform: translate(-50%, -50%);
+        }
+    }    
+    
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .meals{   
+        &-grid{
+            height: 500px;
+            padding: 0 60px;
+            gap: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .meals{   
+        &-grid{
+            height: 500px;
+            padding: 0;
+            gap: 30px;
+        }
+    }
+}
+
+

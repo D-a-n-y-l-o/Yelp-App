@@ -1,15 +1,14 @@
-import { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthFormPage } from './AuthFormPage';
 import { RegisterFormPage } from './RegisterFormPage';
 import { Home } from './Home';
 
-import { Context } from '../context/Context';
+import { useDataContext } from '../hooks/useDataContext';
 
 
 const PrivateRoute = ({children}) => {
-    let {currentUser} = useContext(Context);
+    let {currentUser} = useDataContext();
     
     if(currentUser === null){
         return <Navigate to='/login' />
@@ -20,7 +19,7 @@ const PrivateRoute = ({children}) => {
 
 export const AppRouter = () => {
 
-    let {currentUser} = useContext(Context);
+    let {currentUser} = useDataContext();
 
     return(
         <div>

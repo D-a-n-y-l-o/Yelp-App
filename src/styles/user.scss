@@ -1,6 +1,8 @@
 .user{
     padding: 50px 0;
     text-align: center;
+    max-width: 185px;
+    margin: 0 auto;
 
     &-avatar{
         display: inline-flex;

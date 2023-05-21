@@ -1,5 +1,4 @@
-import { Context } from '../context/Context';
-import { useContext } from 'react';
+import { useDataContext } from '../hooks/useDataContext';
 
 import bin from '../assets/bin.svg';
 import plus from '../assets/plus.svg';
@@ -9,7 +8,7 @@ import minus from '../assets/minus.svg';
 
 export const BasketItem = ({ id, image, title, description, price, amount }) => {
 
-    const { removeMealFromBasket, increaseAmount, decreaseAmount } = useContext(Context);
+    const { removeMealFromBasket, increaseAmount, decreaseAmount } = useDataContext();
 
     return(
         <div className='basket-container'>

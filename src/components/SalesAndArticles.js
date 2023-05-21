@@ -1,7 +1,9 @@
+import { memo } from 'react';
+
 import { Sales } from './Sales';
 import { Articles } from './Articles';
 
-export const SalesAndArticles = () => {
+const SalesAndArticles = () => {
     return(
         <div className='sales-articles-container' >
             <Sales />
@@ -9,3 +11,5 @@ export const SalesAndArticles = () => {
         </div>
     )
 }
+
+export default memo(SalesAndArticles);

@@ -1,18 +1,9 @@
-export const Input = ({ name, className, placeholder, type='text', value, onChange, onBlur, label }) => {
-    
-    const labelToProperSpelling = (name) => {
-        if(name === 'confirm'){
-            const result = name.charAt(0).toUpperCase() + name.slice(1) + ' password';
-            return result;
-        }
-        const result = name.charAt(0).toUpperCase() + name.slice(1);
-        return result;
-    }
-    
+export const Input = ({ name, className, placeholder, type='text', value, onChange, onBlur, label }) => {  
     return(
         <>
-            <p className={label}>{labelToProperSpelling(name)}</p>
+            <label htmlFor={name} className='form-label'>{label}</label>
             <input
+                id={name}
                 name={name}
                 className={className}
                 placeholder={placeholder}

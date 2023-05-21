@@ -1,13 +1,14 @@
-import { useContext, useState } from 'react';
-import { Context } from '../context/Context';
+import { memo } from 'react';
+
+import { useDataContext } from '../hooks/useDataContext';
 
 import arrow from '../assets/arrow.svg';
 
 import { BasketItem } from './BasketItem';
 
-export const Basket = ({ className, toggleBasketShow, toggleCompleteOrderUIShow }) => {
+const Basket = ({ className, toggleBasketShow, toggleCompleteOrderUIShow }) => {
 
-    const { mealsInBasket } = useContext(Context);
+    const { mealsInBasket } = useDataContext();
 
     const getSum = (mealsInBasket) => {
         const total = mealsInBasket.reduce((sum, item) => sum + item.amount * item.price, 0);
@@ -49,3 +50,5 @@ export const Basket = ({ className, toggleBasketShow, toggleCompleteOrderUIShow 
         </div>
     )
 }
+
+export default memo(Basket)

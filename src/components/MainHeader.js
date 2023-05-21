@@ -1,9 +1,11 @@
+import { memo } from 'react';
+
 import emoji from '../assets/emoji.png';
 import basket from '../assets/basket.svg';
 import search from '../assets/search.svg';
 import signOut from '../assets/signOut.svg';
 
-export const MainHeader = ({handleSignOut, toggleBasketShow}) => {
+const MainHeader = ({handleSignOut, toggleBasketShow}) => {
     return(
         <header className='header'>
             <p className='header-title' >
@@ -12,15 +14,17 @@ export const MainHeader = ({handleSignOut, toggleBasketShow}) => {
             </p>
             <nav className='header-nav' >
                 <button className='header-basket-button' onClick={toggleBasketShow}>
-                    <img src={basket} alt='basket' />
+                    <img className='header-basket-image' src={basket} alt='basket' />
                 </button>
                 <button className='header-search-button'>
-                    <img src={search} alt='search' />
+                    <img className='header-search-image' src={search} alt='search' />
                 </button>
                 <button className='header-signOut-button' onClick={handleSignOut}>
-                    <img src={signOut} alt='signOut' />
+                    <img className='header-signOut-image' src={signOut} alt='signOut' />
                 </button>
             </nav>
         </header>
     )
 }
+
+export default memo(MainHeader)

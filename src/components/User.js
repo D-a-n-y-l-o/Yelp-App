@@ -1,8 +1,8 @@
+import { memo } from 'react';
+
 import logo from '../assets/userLogo.png';
 
-export const User = () => {
-
-
+const User = () => {
     return(
         <div className='user'>
             <div className='user-avatar'>
@@ -12,3 +12,5 @@ export const User = () => {
         </div>
     )
 }
+
+export default memo(User);

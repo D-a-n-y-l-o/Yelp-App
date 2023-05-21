@@ -1,10 +1,10 @@
-import girl1 from '../assets/girl1.svg';
-import girl2 from '../assets/girl2.svg';
-import oldman from '../assets/oldman.svg';
-import chicken from '../assets/chicken.png';
-import coronavirus from '../assets/coronavirus.png';
-import cookies from '../assets/cookies.png';
-import pizzaEmoji from '../assets/pizza-emoji.png';
+import girl1 from '../assets/articles/girl1.svg';
+import girl2 from '../assets/articles/girl2.svg';
+import oldman from '../assets/articles/oldman.svg';
+import chicken from '../assets/articles/chicken.png';
+import coronavirus from '../assets/articles/coronavirus.png';
+import cookies from '../assets/articles/cookies.png';
+import pizzaEmoji from '../assets/articles/pizza-emoji.png';
 import arrow from '../assets/arrow.svg';
 
 import { Article } from './Article';

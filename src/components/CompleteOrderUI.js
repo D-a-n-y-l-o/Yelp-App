@@ -1,6 +1,8 @@
+import { memo } from 'react'
+
 import watch from '../assets/Watch.png'
 
-export const CompleteOrderUI = ({className, toggleCompleteOrderUIShow}) => {
+const CompleteOrderUI = ({className, toggleCompleteOrderUIShow}) => {
 
     return(
         <div className={className}>
@@ -17,3 +19,5 @@ export const CompleteOrderUI = ({className, toggleCompleteOrderUIShow}) => {
         </div>
     )
 }
+
+export default memo(CompleteOrderUI);

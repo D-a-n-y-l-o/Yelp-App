@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 import classnames from 'classnames'
 
@@ -28,7 +28,7 @@ const menuList = [
 ];
 
 
-export const SideMenu = () => {
+const SideMenu = () => {
 
     const [activeItem, setActiveItem] = useState(menuList[0]);
 
@@ -57,3 +57,5 @@ export const SideMenu = () => {
         </nav>
     )
 }
+
+export default memo(SideMenu)

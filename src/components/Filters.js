@@ -1,17 +1,17 @@
-import { useState, useContext } from "react";
+import { useState, memo } from "react";
 
 import { Filter } from "./Filter";
 
 import classnames from 'classnames'
 
-import all from '../assets/all.png';
-import burger from '../assets/burger.png';
-import pizza from '../assets/pizza.png';
-import salads from '../assets/salads.png';
-import donut from '../assets/donut.png';
-import drinks from '../assets/drinks.png';
+import all from '../assets/filters/all.png';
+import burger from '../assets/filters/burger.png';
+import pizza from '../assets/filters/pizza.png';
+import salads from '../assets/filters/salads.png';
+import donut from '../assets/filters/donut.png';
+import drinks from '../assets/filters/drinks.png';
 
-import { Context } from "../context/Context";
+import { useDataContext } from "../hooks/useDataContext";
 
 const filtersList = [
     {
@@ -36,7 +36,7 @@ const filtersList = [
         id: 4,
         title: 'Salads',
         image: salads,
-        type: 'salads',
+        type: 'salad',
     },
     {
         id: 5,
@@ -48,22 +48,21 @@ const filtersList = [
         id: 6,
         title: 'Drinks',
         image: drinks,
-        type: 'drinks',
+        type: 'drink',
     },
 ]
 
 
-export const Filters = () => {
+const Filters = () => {
 
-    const { mealType, setMealType } = useContext(Context)
+    const { setMealType, scrollToComponentTop } = useDataContext();
 
     const [activeItem, setActiveItem] = useState(filtersList[0]);
 
     const changeActiveItem = (item) => {
         setActiveItem(item);
         setMealType(item.type);
-
-        console.log(mealType)
+        scrollToComponentTop();
     }
 
     return(
@@ -79,4 +78,6 @@ export const Filters = () => {
             })}
         </div>
     )
-}
+};
+
+export default memo(Filters);

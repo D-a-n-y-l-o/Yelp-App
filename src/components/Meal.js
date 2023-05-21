@@ -1,6 +1,4 @@
 export const Meal = ({ className, image, title, text, price, onClick, icon }) => {
-    
-    
     return(
         <div className={className}>
             <img className='meal-image' src={image} alt='mealImage' />

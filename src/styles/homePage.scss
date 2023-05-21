@@ -1,6 +1,7 @@
 body{
     background-color: rgb(234, 241, 254);
     font-family: 'League Spartan', sans-serif;
+    height: fit-content;
     
     &::-webkit-scrollbar {
         width: 0;
@@ -24,8 +25,107 @@ body{
 }
 
 .meals-and-articles{
-    margin: 0 55px 0 60px;
+    margin: 0 auto;
+    padding: 0 50px 0 60px;
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 55px;
+}
+
+@media screen and (max-width: 1400px) {
+    .home-container{
+        max-width: 1300px;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1340px) {
+    .home-container{
+        max-width: 1140px;
+        gap: 20px;
+    }
+
+    .meals-and-articles{
+        grid-template-columns: 2fr 1fr;
+        gap: 35px;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .home-container{
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .home-container{
+        max-width: 740px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 30px 0;
+    }
+
+    .all-menu-container{
+        position: relative;
+        background-color: white;
+        padding: 20px 60px;
+        border-radius: 30px 30px 0 0;
+    }
+
+    .main{
+        border-radius: 0 0 5% 5%;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .home-container{
+        max-width: 500px;
+    }
+
+    .all-menu-container{
+        padding: 20px 20px;
+    }
+
+    .meals-and-articles{
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .home-container{
+        max-width: 420px;
+        border-radius: 430px;
+    }
+
+    .meals-and-articles{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-container{
+        max-width: 320px;
+    }
+
+    .main{
+        border-radius: 0 0 30px 30px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .home-container{
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .home-container{
+        max-width: 280px;
+    }
 }

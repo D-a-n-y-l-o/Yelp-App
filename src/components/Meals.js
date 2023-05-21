@@ -1,119 +1,58 @@
-import { useState, useContext } from 'react';
-import { Context } from '../context/Context';
+import { useMemo, memo, useRef, useEffect } from 'react';
+import { useDataContext } from '../hooks/useDataContext';
 
 import classnames from 'classnames'
 
-import filter from '../assets/filter.svg';
-import burgerMeal from '../assets/burgerMeal.png';
-import butterChicken1 from '../assets/butterChicken1.png';
-import butterChicken2 from '../assets/butterChicken2.png';
-import paprik from '../assets/paprik.png';
-import noodles from '../assets/noodles.png';
-import hiSalmon from '../assets/hiSalmon.png';
-import fireLogo from '../assets/fireLogo.svg';
-import thumbLogo from '../assets/thumbLogo.svg';
-import burgerLogo from '../assets/burger.svg';
-import chickenLogo from '../assets/chicken.svg';
-import riceLogo from '../assets/rice.svg';
-import noodlesLogo from '../assets/noodles.svg';
+import filter from '../assets/meals/filter.svg';
 
+
+import { mealsList } from '../mealsList';
 import { Meal } from './Meal';
+import { firstLetterToUppercase } from '../helpers/firstLetterToUppercase';
 
 
-const mealsList = [
-    {
-        id: 1,
-        image: burgerMeal,
-        title: 'Burger Wanted',
-        description: 'Rels, Zoodies, Garnein Sesasam Dessigns, Redeshchein, Avocade',
-        price: '29',
-        icon: fireLogo,
-        type: 'burger',
-        basketIcon: burgerLogo,
-    },
-    {
-        id: 2,
-        image: butterChicken1,
-        title: 'Butter Chicken',
-        description: 'Reis, Sous-vide Chicken, Penaut Satay, Babyspian',
-        price: '56',
-        icon: thumbLogo,
-        type: 'butter chicken',
-        basketIcon: chickenLogo,
-    },
-    {
-        id: 3,
-        image: hiSalmon,
-        title: 'Hi, Salmon',
-        description: 'Rels, Zoodies, Garnein Dressings, Avacode Edanmame, Maris.',
-        price: '69',
-        icon: null,
-        type: 'salmon',
-        basketIcon: riceLogo,
-    },
-    {
-        id: 4,
-        image: paprik,
-        title: 'Paprik',
-        description: 'Rels, Zoodies, Garnein Sesasam Dessigns, Redeshchein, Avocade',
-        price: '45',
-        icon: null,
-        type: 'paprik',
-        basketIcon: chickenLogo,
-    },
-    {
-        id: 5,
-        image: noodles,
-        title: 'Noodles',
-        description: 'Reis, Sous-vide Chicken, Penaut Satay, Babyspian',
-        price: '26',
-        icon: null,
-        type: 'noodles',
-        basketIcon: noodlesLogo,
-    },
-    {
-        id: 6,
-        image: butterChicken2,
-        title: 'Butter Chicken 2.0',
-        description: 'Rels, Zoodies, Garnein Dressings, Avacode Edanmame, Maris.',
-        price: '75',
-        icon: thumbLogo,
-        type: 'butter chicken',
-        basketIcon: chickenLogo,
-    }
-];
 
+const Meals = ({toggleBasketShow}) => {
 
-export const Meals = () => {
+    const { mealType, addMealToBasket, activeElements, setActiveElements, setScrollTopRef, removeMealFromBasket, mealsInBasket } = useDataContext();
 
-    const { mealType, addMealToBasket, activeElements, setActiveElements } = useContext(Context);
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        setScrollTopRef(scrollRef);
+    }, [setScrollTopRef])
 
     const makeItemActive = (item) => {
+
+        if(mealsInBasket.length === 0){
+            toggleBasketShow();
+        }
+
         if (activeElements.includes(item.id)) {
-            return;
+            removeMealFromBasket(item.id)
         } else {
             setActiveElements([...activeElements, item.id]);
             addMealToBasket(item)
         }
     };
 
-    const getFilteredList = (mealType) => {       
-        if(mealType){
-            const filteredList = mealsList.filter((item) => item.type === mealType);
-            return filteredList;
+    const filteredList = useMemo(() => {
+        if (mealType) {
+          const filteredList = mealsList.filter((item) => item.type === mealType);
+          return filteredList;
         } else {
-            return mealsList;
+          return mealsList;
         }
-    }
+      }, [mealType]);
 
     return(
-        <div className='meals' >
+        <div className='meals'>
             <header className='meals-header'>
-                <h3 className='meals-title'>All Items</h3>
+                <h3 className='meals-title'>{firstLetterToUppercase(mealType === '' ? 'All items' : `${mealType}s`)}</h3>
                 <img className='meals-main-image' src={filter} alt='filterIcon' />
             </header>
-            <div className='meals-grid'>
-                {getFilteredList(mealType).map((item) => {
+            <div className='meals-grid' ref={scrollRef}>
+                {filteredList.map((item) => {
                     return <Meal 
                         className={classnames('meal', {'meal-active': activeElements.includes(item.id)})}
                         image={item.image}
@@ -128,4 +67,6 @@ export const Meals = () => {
             </div>
         </div>
     )
-}
+};
+
+export default memo(Meals);

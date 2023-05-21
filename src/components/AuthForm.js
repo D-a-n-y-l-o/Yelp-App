@@ -1,49 +1,47 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { app } from '../base';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../base';
 
 import { NavLink } from 'react-router-dom';
-
-import { Context } from '../context/Context';
+import { useDataContext } from '../hooks/useDataContext';
 
 import { Input } from './Input';
 import { Button } from './Button';
 import { FormError } from './FormError';
 
 
-const auth = getAuth();
+const loginSchema = Yup.object({
+    email: Yup
+        .string()
+        .email('Email format is incorrect')
+        .required('Email is a required field'),
+    password: Yup
+    .string()
+    .min(8, 'Password must be 8 or more characters long')
+    .matches(/[0-9]/, 'Password requires a number')
+    .matches(/[a-z]/, 'Password requires a lowercase letter')
+    .required('Password is a required field'),
+});
+
 
 export const AuthForm = () => {
 
-    const { setCurrentUser, setIsLoading } = useContext(Context);
+    const { setCurrentUser } = useDataContext();
 
     const [formError, setFormError] = useState('')
 
-    const {handleSubmit, handleChange, values, handleBlur, touched, errors} = useFormik({
+    const { handleSubmit, handleChange, values, handleBlur, touched, errors } = useFormik({
         initialValues: {
             email: '',
             password: '',
         },
-        validationSchema: Yup.object({
-            email: Yup
-                .string()
-                .email('Email format is incorrect')
-                .required('Email is a required field'),
-            password: Yup
-            .string()
-            .min(8, 'Password must be 8 or more characters long')
-            .matches(/[0-9]/, 'Password requires a number')
-            .matches(/[a-z]/, 'Password requires a lowercase letter')
-            .required('Password is a required field'),
-        }),
-        onSubmit: async ({email, password}) => {
-            console.log('email:', email);
-            console.log('password:', password);
-
+        validationSchema: loginSchema,
+        onSubmit: async () => {
             try{
+                setFormError('');
                 const response = await signInWithEmailAndPassword(auth, values.email, values.password);
                 const user = response.user
 
@@ -61,8 +59,8 @@ export const AuthForm = () => {
             className='form'
         >
             <Input
-                label='form-label'
-                className='form-input form-input-first'
+                label='Email'
+                className='form-input'
                 placeholder="test@gmail.com"
                 type='text'
                 value={values.email}
@@ -72,8 +70,8 @@ export const AuthForm = () => {
             />
             {touched.email && errors.email ? <p className='form-error-message' >{errors.email}</p> : null}
             <Input
-                label='form-label'
-                className='form-input form-input-password'
+                label='Password'
+                className='form-input form-input-noDecoration'
                 placeholder="*************"
                 type='password'
                 value={values.password}
@@ -89,7 +87,7 @@ export const AuthForm = () => {
             <NavLink to='/register' className='form-link' >
                 don`t have an account?
             </NavLink>
-            <FormError errorMessage={formError} />
+            {formError !== '' && <FormError errorMessage={formError} />}
         </form>
     )
 }

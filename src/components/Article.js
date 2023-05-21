@@ -1,4 +1,4 @@
-import thumb from '../assets/thumb.png';
+import thumb from '../assets/articles/thumb.png';
 
 
 export const Article = ({ icon, title, color, image1, image2 }) => {

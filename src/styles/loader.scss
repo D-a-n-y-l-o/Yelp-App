@@ -8,8 +8,8 @@ $loader-background: #EAF1FE;
     height: 100%;
     background: $loader-background;
     z-index: 5;
-    animation: splitBackgroundLeft 3s forwards;
-    animation-delay: 2s;
+    animation: splitBackgroundLeft 1.5s forwards;
+    animation-delay: 1s;
 }
 
 .loader-right{
@@ -20,8 +20,8 @@ $loader-background: #EAF1FE;
     height: 100%;
     background: $loader-background;
     z-index: 5;
-    animation: splitBackgroundRight 3s forwards;
-    animation-delay: 2s;
+    animation: splitBackgroundRight 1.5s forwards;
+    animation-delay: 1s;
 }
 
 .loader-container{
@@ -31,7 +31,8 @@ $loader-background: #EAF1FE;
     left: 50%;
     z-index: 6;
     transition: 2s;
-    animation: fadeOut 2s forwards;
+    animation: fadeOut 1s forwards;
+
 
     &-hide{
         opacity: 0;
@@ -81,21 +82,142 @@ $loader-background: #EAF1FE;
 @keyframes splitBackgroundLeft {
     0% {
       transform: translateX(0%);
-      visibility: visible;
     }
     100% {
       transform: translateX(-100%);
-      visibility: hidden;
     }
 }
 
 @keyframes splitBackgroundRight {
     0% {
       transform: translateX(0%);
-      visibility: visible;
     }
+    
     100% {
       transform: translateX(100%);
-      visibility: hidden;
     }
+}
+
+
+@media screen and (max-width: 1090px){
+  .loader-title{
+    font-size: 55px;
+    line-height: 55px;
+  }
+
+  .loader-pretitle{
+    font-size: 20px;
+    line-height: 45px;
+  }
+  
+  .loader-image-burger{
+    top: -150px;
+    right: -120px;
+    width: 200px;
+  }
+
+  .loader-image-grapes{
+    bottom: -155px;
+    left: -80px;
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  
+  .loader-container{
+    top: 300px;
+  }
+
+  .loader-image-burger{
+    top: -100px;
+    right: -60px;
+    width: 160px;
+  }
+
+  .loader-image-grapes{
+    bottom: -80px;
+    left: -40px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  
+  .loader-container{
+    top: 200px;
+  }
+  
+  .loader-title{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .loader-pretitle{
+    font-size: 20px;
+    line-height: 30px;
+  }
+  
+  .loader-image-burger{
+    top: -50px;
+    right: -40px;
+    width: 100px;
+  }
+
+  .loader-image-grapes{
+    bottom: -50px;
+    left: -40px;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  
+  .loader-title{
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .loader-pretitle{
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  .loader-image-burger{
+    top: -50px;
+    right: -10px;
+    width: 100px;
+  }
+
+  .loader-image-grapes{
+    bottom: -50px;
+    left: -30px;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  
+  .loader-title{
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  .loader-pretitle{
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .loader-image-burger{
+    top: -50px;
+    right: 0px;
+    width: 80px;
+  }
+
+  .loader-image-grapes{
+    bottom: -50px;
+    left: -10px;
+    width: 60px;
+  }
 }

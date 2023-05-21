@@ -33,7 +33,7 @@ $error-color:  #ca0000;
         font-weight: 700;
         font-size: 12px;
         line-height: 18px;
-        margin: 0px 0px 3px;
+        margin: 10px 0px 3px;
     }
 
     &-input{
@@ -46,10 +46,6 @@ $error-color:  #ca0000;
         padding-left: 13px;
         box-sizing: border-box;
 
-        &-first{
-            margin: 0px 0 13px;
-        }
-
         &::placeholder{
             font-weight: 700;
             font-size: 11px;
@@ -59,13 +55,9 @@ $error-color:  #ca0000;
         }
     }
 
-    &-input-password{
+    &-input-noDecoration{
         &::placeholder{
-            font-weight: 700;
-            font-size: 11px;
-            line-height: 18px;
             text-decoration: none;
-            color: #CC9696;
         }
     }
 
@@ -75,7 +67,11 @@ $error-color:  #ca0000;
         line-height: 18px;
         color: $error-color;
         text-align: start;
-        margin: 0 0 5px;
+        margin: 5px 0 5px;
+
+        &-notLast{
+            margin-top: 13px;
+        }
     }
 
     &-button{
@@ -143,4 +139,257 @@ $error-color:  #ca0000;
     position: absolute;
     right: 3px;
     bottom: 0px;
+}
+
+
+@media screen and (max-width: 1090px){
+    
+    .form-container{
+        position:relative;
+        text-align: center;
+        padding-bottom: 100px;
+    }
+    
+    .form-title{
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 65px;
+        margin: 50px 0 13px;
+        position: relative;
+    
+        &-image{
+            position: absolute;
+        }
+    }
+    
+    
+    .form-image-grapes{
+        position: absolute;
+        left: 0px;
+        top: -55px;
+        width: 180px;
+    }
+    
+    .form-image-leaf{
+        position: absolute;
+        right: 0px;
+        top: -55px;
+        width: 150px;
+    }
+    
+    .form-image-bittenApple{
+        position: absolute;
+        left: 30px;
+        bottom: 0px;
+        width: 140px;
+    }
+    
+    .form-image-orange{
+        position: absolute;
+        right: 3px;
+        bottom: 0px;
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 800px){ 
+    
+    .form-title{
+        font-size: 40px;
+        line-height: 40px;
+        margin: 100px 0 13px;
+
+        &-image{
+            height: 40px;
+        }
+    }
+
+    .form{
+        padding: 77px 70px 54px;
+
+        &-error{
+            width: 400px;
+        }
+    }
+    
+    .form-image-grapes{
+        display: none;
+    }
+    
+    .form-image-leaf{
+        display: none;
+    }
+    
+    .form-image-bittenApple{
+        display: none;
+    }
+    
+    .form-image-orange{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .form-container{
+        padding-bottom: 50px;
+    }
+    
+    .form-title{
+        font-size: 30px;
+        line-height: 30px;
+        margin: 50px 0 13px;
+
+        &-image{
+            height: 30px;
+        }
+    }
+    
+    .form{
+        padding: 50px 40px 40px;
+
+
+        &-input{    
+            width: 350px;
+        }
+
+        &-button{
+            display: block;
+            width: 163px;
+            height: 45px;
+            line-height: 18px;
+            margin: 20px auto 10px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &-error{
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .form-title{
+        font-size: 30px;
+        line-height: 30px;
+        margin: 30px 0 13px;
+
+        &-image{
+            height: 30px;
+        }
+    }
+    
+    .form{
+        padding: 50px 40px 40px;
+
+        &-label{
+            padding-left: 13px;
+        }
+
+        &-error-message{
+            padding-left: 13px;
+        }
+
+        &-input{    
+            width: 260px;
+            height: 40px;
+        }
+
+        &-button{
+            display: block;
+            width: 260px;
+            height: 45px;
+            line-height: 18px;
+            margin: 20px auto 10px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &-error{
+            font-size: 12px;
+            line-height: 12px;
+            width: 230px;
+        }
+    }
+}
+
+@media screen and (max-width: 360px){
+    .form-title{
+        font-size: 26px;
+        line-height: 26px;
+        margin: 30px 0 13px;
+
+        &-image{
+            height: 26px;
+        }
+    }
+    
+    .form{
+        padding: 30px 20px 30px;
+
+        &-label{
+            padding-left: 13px;
+        }
+
+        &-error-message{
+            padding-left: 13px;
+        }
+
+        &-input{    
+            width: 260px;
+        }
+
+        &-button{
+            display: block;
+            width: 260px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 14px;
+            margin: 20px auto 10px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &-error{
+            top: 20px;
+            font-size: 10px;
+            line-height: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 320px){
+    .form{
+        padding: 30px 20px 30px;
+
+        &-input{    
+            width: 240px;
+        }
+
+        &-button{
+            display: block;
+            width: 240px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 14px;
+            margin: 20px auto 10px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &-error{
+            top: 20px;
+            font-size: 10px;
+            line-height: 10px;
+        }
+    }
 }
