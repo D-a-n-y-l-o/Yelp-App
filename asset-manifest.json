@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Yelp-App/static/css/main.af5b6f9d.css",
-    "main.js": "/Yelp-App/static/js/main.0098a038.js",
+    "main.js": "/Yelp-App/static/js/main.633318fb.js",
     "static/media/oldman.svg": "/Yelp-App/static/media/oldman.2d9105a483de338c4c29a068e6bcaec8.svg",
     "static/media/girl1.svg": "/Yelp-App/static/media/girl1.21df87409c833b2a363e591de98f356d.svg",
     "static/media/girl2.svg": "/Yelp-App/static/media/girl2.7b359f1ff367688ea8053dcd281d26f8.svg",
@@ -53,10 +53,10 @@
     "static/media/minus.svg": "/Yelp-App/static/media/minus.5d1c8e634476a7c77e7d4225eda5aacc.svg",
     "static/media/filter.svg": "/Yelp-App/static/media/filter.d72655baac6b97941fdf13ba5513b4a3.svg",
     "main.af5b6f9d.css.map": "/Yelp-App/static/css/main.af5b6f9d.css.map",
-    "main.0098a038.js.map": "/Yelp-App/static/js/main.0098a038.js.map"
+    "main.633318fb.js.map": "/Yelp-App/static/js/main.633318fb.js.map"
   },
   "entrypoints": [
     "static/css/main.af5b6f9d.css",
-    "static/js/main.0098a038.js"
+    "static/js/main.633318fb.js"
   ]
 }
