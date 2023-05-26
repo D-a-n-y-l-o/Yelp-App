@@ -25,7 +25,7 @@ export const Home = () => {
     const [showLoader, setShowLoader] = useState(true);
     const [isMenuShown, setIsMenuShown] = useState(false);
 
-    const { setCurrentUser, setMealsInBasket } = useDataContext();
+    const { setCurrentUser, setMealsInBasket, setActiveElements } = useDataContext();
     const { goTo } = useNav();
 
     useEffect(() => {
@@ -51,6 +51,7 @@ export const Home = () => {
     const toggleCompleteOrderUIShow = () => {
         setIsCompleteOrderUIShown(prev => !prev);
         setMealsInBasket([]);
+        setActiveElements([]);
     };
 
     const toggleMenu = () => {
