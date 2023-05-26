@@ -93,7 +93,7 @@ export const Home = () => {
                 <div className='meals-and-articles'>
                     <div>
                         <Filters />
-                        <Meals toggleBasketShow={toggleBasketShow} />
+                        <Meals showBasket={() => {setIsBasketShown(true)}} />
                     </div>
                         <SalesAndArticles />
                 </div>
