@@ -12,7 +12,7 @@ import { firstLetterToUppercase } from '../helpers/firstLetterToUppercase';
 
 
 
-const Meals = ({toggleBasketShow}) => {
+const Meals = ({showBasket}) => {
 
     const { mealType, addMealToBasket, activeElements, setActiveElements, setScrollTopRef, removeMealFromBasket, mealsInBasket } = useDataContext();
 
@@ -25,7 +25,7 @@ const Meals = ({toggleBasketShow}) => {
     const makeItemActive = (item) => {
 
         if(mealsInBasket.length === 0){
-            toggleBasketShow();
+            showBasket();
         }
 
         if (activeElements.includes(item.id)) {
