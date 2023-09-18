@@ -11,6 +11,8 @@ In case you would like to create something similar to it, you will need the foll
     firebase,
     formik,
     react-router-dom,
-    yup,
+    yup
+
+You can familiarize with this app at this link: https://d-a-n-y-l-o.github.io/Yelp-App/
 
 Enjoy using this app!
